@@ -6,8 +6,9 @@
   </head>
   <body>
     <div>
-      <%= @first_player.name %> attacks <%= @second_player.name %>
-      <%= @second_player.name %> HP: <%= @second_player.hp %>
+      <%= @game.first_player.name %> attacks <%= @game.second_player.name %>
+      <%= @game.second_player.name %> HP: <%= @game.second_player.hp %>
+      <a href="/play"> Ok </a>
     </div>
   </body>
 </html>

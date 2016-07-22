@@ -14,15 +14,14 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @first_player = $game.first_player
-    @second_player = $game.second_player
+    @game = $game
     erb :play
   end
 
   get '/attack' do
-    @first_player = $game.first_player
-    @second_player = $game.second_player
-    $game.attack(@second_player)
+    @game = $game
+    @game.attack(@game.second_player)
+    @game.switch_turns
     erb :attack
   end
 

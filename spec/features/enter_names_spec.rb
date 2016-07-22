@@ -39,3 +39,16 @@ feature "Attack" do
     expect(page).to have_content("Alex attacks Zeeshan")
   end
 end
+
+feature '#switching turns' do
+  scenario "starts with player one's turn" do
+    sign_in_and_play
+    expect(page).to have_content("Alex's turn")
+  end
+  scenario "switches turns after attack" do
+    sign_in_and_play
+    click_link "Attack"
+    click_link "Ok"
+    expect(page).to have_content("Zeeshan's turn")
+  end
+end

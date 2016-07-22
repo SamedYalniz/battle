@@ -11,4 +11,13 @@ describe Game do
       game.attack(second_player)
     end
   end
+  describe '#turns' do
+    it "starts with player one's turn" do
+      expect(game.current_turn).to eq first_player
+    end
+    it "switches turn after attack" do
+      game.switch_turns
+      expect(game.current_turn).to eq second_player
+    end
+  end
 end
