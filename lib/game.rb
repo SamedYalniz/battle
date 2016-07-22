@@ -21,4 +21,12 @@ class Game
   def opposite_of(current_turn)
     @players.select { |player| player != current_turn }.first
   end
+
+  def self.start_game(first_player, second_player)
+    @game = Game.new(first_player, second_player)
+  end
+
+  def self.game
+    @game
+  end
 end

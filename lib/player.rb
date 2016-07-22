@@ -3,7 +3,7 @@ class Player
   attr_reader :player, :name, :receive_damage
   attr_accessor :hp
 
-  def initialize(player)
+  def initialize(player = "Computer")
     @player = player
     @hp = HP
   end
