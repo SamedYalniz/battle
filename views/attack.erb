@@ -8,6 +8,7 @@
     <div>
       <%= @game.current_turn.name %> attacks <%= @game.switch_turns.name %>
       <%= @game.current_turn.name %> HP: <%= @game.current_turn.hp %>
+      <%= @game.current_turn.lost %> 
       <a href="/play"> Ok </a>
     </div>
   </body>

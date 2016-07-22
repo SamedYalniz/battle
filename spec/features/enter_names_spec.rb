@@ -73,5 +73,11 @@ feature '#switching turns' do
     click_link "Ok"
     expect(page).to have_content("Zeeshan's turn")
   end
+end
 
+feature '#player dies' do
+  scenario "second player dies" do
+    attack_till_death
+    expect(page).to have_content("lose")
+  end
 end

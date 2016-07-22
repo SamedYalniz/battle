@@ -15,4 +15,8 @@ class Player
   def receive_damage
     self.hp -= 10
   end
+
+  def lost
+    'lose' if hp.zero?
+  end
 end
