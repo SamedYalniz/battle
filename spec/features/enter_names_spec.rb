@@ -16,6 +16,11 @@ feature "Hit points" do
     expect(page).to have_content("Zeeshan HP: 60")
   end
 
+  scenario "displaying player 1" do
+    sign_in_and_play
+    expect(page).to have_content("Alex HP: 60")
+  end
+
 
   # As Player 1,
   # So I can start to win a game of Battle,
@@ -26,6 +31,14 @@ feature "Hit points" do
     click_link("Attack")
     expect(page).to have_content("Zeeshan HP: 50")
   end
+  scenario "reduce player 2 HP by 10" do
+  sign_in_and_play
+  click_link("Attack")
+  click_link("Ok")
+  click_link("Attack")
+  expect(page).to have_content("Alex HP: 50")
+end
+
 end
 
 # As Player 1,
@@ -38,6 +51,15 @@ feature "Attack" do
     click_link("Attack")
     expect(page).to have_content("Alex attacks Zeeshan")
   end
+
+  scenario "attacking player_1" do
+    sign_in_and_play
+    click_link "Attack"
+    click_link "Ok"
+    click_link "Attack"
+    expect(page).to have_content("Zeeshan attacks Alex")
+  end
+
 end
 
 feature '#switching turns' do
@@ -51,4 +73,5 @@ feature '#switching turns' do
     click_link "Ok"
     expect(page).to have_content("Zeeshan's turn")
   end
+
 end
